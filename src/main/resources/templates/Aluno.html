@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="bootstrap.min.css">
+<script src="FetchAluno.js"></script>
+<script src="jQuery_v3.5.1.js"></script>
+<script src="functionAddRemove.js"></script>
+<title>Insert title here</title>
+</head>
+
+<body>
+	<div class="container">
+		<br>
+		<!--  ************ Nav pills ************  -->
+		<ul class="nav nav-pills" role="tablist">
+			<li class="nav-item"><a class="nav-link" data-toggle="pill"
+				href="home">Home</a></li>
+			<li class="nav-item"><a class="nav-link active"
+				data-toggle="pill" href="aluno">Aluno</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="pill"
+				href="materia">Matéria</a></li>
+			<li class="nav-item"><a class="nav-link" data-toggle="pill"
+				href="professor">professor</a></li>
+		</ul>
+		
+
+		<h1 class="text-center">CADASTRO DE ALUNOS</h1>
+
+		<!--  ************ input find by id ************  -->
+		<div class="row mb-3">
+			<div class="col-sm-2">
+				<label for="idAluno">Id do aluno:</label> <input type="number"
+					class="form-control" id="idAluno" name="idAluno">
+			</div>
+			<div class="col-sm-1">
+				<label style="color: white;">teste</label>
+				<button type="button" onclick="findById()" class="btn btn-primary">Pesquisar</button>
+			</div>
+			<div class="col-sm-1">
+				<input id="txtQtde" name="txtQtde">
+			</div>
+		</div>
+		<button type="button" onclick="pegarValorTabela()" class="btn btn-primary">Pesquisar</button>
+		
+		<div id="campoDoc">
+			<div class="row mb-4">
+				<div class="col-sm-3">
+					<strong>Nome: </strong>
+					<input type="text" class="form-control" id="txtNome" name="txtNome">
+				</div>
+				<div class="col-sm-3">
+					<strong>Email: </strong> <input type="text" class="form-control"
+						id="txtEmail" name="txtEmail">
+				</div>
+				<div class="col-sm-1">
+					<strong>Idade: </strong> <input type="text" class="form-control"
+						id="txtIdade" name="txtIdade">
+				</div>
+				<div class="col-sm-2">
+					<strong>RA: </strong> <input type="text" class="form-control"
+						id="txtRA" name="txtRA">
+				</div>
+				<div class="col-sm-2">
+					<strong>Telefone: </strong> <input type="text" class="form-control"
+						id="txtTelefone" name="txtTelefone">
+				</div>
+			</div>
+		</div>
+		<div  id="campoIdMateria">
+		    <div class="row mb-3">
+		        <div class="col-sm-2"><strong>Id Materia: </strong> 
+		            <input type="text" class="form-control" id="1"name="1">
+		        </div>
+		        <div class="col-sm-1"> 
+		            <a href="#" data-id="2" id="addMateria">adicionar matéria</a>
+		        </div>
+		    </div>
+		</div>
+		
+		<p id="tabelaListar"></p>
+
+
+
+
+	</div>
+</body>
+</html>
