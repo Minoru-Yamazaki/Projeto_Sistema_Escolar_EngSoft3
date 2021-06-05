@@ -5,6 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import br.com.sistema.escolar.exceptions.BusinessException;
+import br.com.sistema.escolar.web.domain.DefaultResponseMessage;
 import org.springframework.stereotype.Service;
 
 import br.com.sistema.escolar.dao.AlunoDAO;
@@ -37,9 +39,12 @@ public class MateriaServices implements IServices {
 	@Override
 	public EntidadeDominio salvar(EntidadeDominio entidade) {
 		Materia mat = (Materia)entidade;
-		mat.setErros(executaRnMateria(entidade));
-		
-		if(mat.getErros().isEmpty()) {
+		List<String> errors = executaRnMateria(entidade);
+
+		if(!errors.isEmpty())
+			throw new BusinessException(erros);
+
+		if(errors.isEmpty()) {
 			try {
 				connection = Conexao.getConnection();
 				connection.setAutoCommit(false);

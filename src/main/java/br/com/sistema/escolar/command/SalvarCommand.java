@@ -1,13 +1,18 @@
 package br.com.sistema.escolar.command;
 
-import br.com.sistema.escolar.entity.EntidadeDominio;
+import br.com.sistema.escolar.usecase.IFacade;
+import br.com.sistema.escolar.web.domain.EntidadeNegocio;
+import lombok.RequiredArgsConstructor;
 
-public class SalvarCommand  implements ICommand{
+import java.util.Optional;
+
+@RequiredArgsConstructor
+public class SalvarCommand implements ICommand{
+
+	private final IFacade facade;
 
 	@Override
-	public Object execute(EntidadeDominio entidade) {
-		
-		return null;
+	public Optional<EntidadeNegocio> execute(EntidadeNegocio entidadeNegocio) {
+		return this.facade.cadastrar(entidadeNegocio);
 	}
-
 }
